@@ -4,26 +4,34 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+// #include <algorithm> // std::transform
 
 std::vector<std::string> openOrSenior(std::vector<std::pair<int, int>>& data)
 {
-   return {
-     std::transform(data.begin(), data.end(), data.begin(), [](auto applicant) {
-       std::cout << applicant.first() << " -- " << applicant.second() << std::endl;
-       /*
-       if ((applicant.first() < 55) || (applicant.second() <= 7)) {
-         return "Open";
-       } else {
-         return "Senior";
-       }
-       */
-      return ((applicant.first() < 55) || (applicant.second() <= 7)) ? "Open" : "Senior";
-     })
-  }; // TODO: your code here
+  auto result = std::vector<std::string>(data.size());
+  // Not importing any extra library, we can use a simple for loop to iterate through the data and fill the result vector
+  for (size_t i = 0; i < data.size(); ++i) {
+    result[i] = ((data[i].first < 55) || (data[i].second <= 7)) ? "Open" : "Senior";
+  }
+
+  // If we want to import the "utility" library and use std::transform, here's the way to do it:
+  // std::transform(data.begin(), data.end(), result.begin(), [](auto applicant) {
+  //  return ((applicant.first < 55) || (applicant.second <= 7)) ? "Open" : "Senior";
+  // });
+
+  return result;
 }
 
 
 int main() {
+
+  std::vector<std::pair<int, int>> data   = {{45, 12},{55,21},{19, -2},{104, 20}};
+  std::vector<std::pair<int, int>> data2   = {{16, 23},{73,1},{56, 20},{1, -1}};
+
+  auto result = openOrSenior(data);
+  for (const auto& r : result) {
+    std::cout << r << std::endl;
+  }
 
   /*
   It(example_tests_1)
