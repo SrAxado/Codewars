@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <set>
+#include <set>  // In order to be able to run is_pangram2()
 
 bool is_pangram(const std::string& s) {
   // char alphabet[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -42,7 +42,7 @@ bool is_pangram2(const std::string& s) { // By PureMathcoder
 
 int main() {
 
-  if (is_pangram2("The quick, brown fox jumps over the lazy dog!")) {
+  if (is_pangram("The quick, brown fox jumps over the lazy dog!")) {
   // if (is_pangram("a2cdefghijklmnopqrstuvwxyz")) {
   // if (is_pangram("a2cdefghijnopqtuvwxyz")) {
     std::cout << "All are letters accounted for!" << std::endl;

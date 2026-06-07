@@ -6,6 +6,7 @@
 #include <sstream>  // To be able to run the spinWords3() and spinWords4() -- from Codewars solutions
 #include <algorithm>  // To be able to run the spinWords3() and spinWords4() -- from Codewars solutions
 
+
 std::string spinWords(const std::string &str) { // Replacing the 
   std::string result = str;
   size_t beginWord = 0, endWord = 0;
